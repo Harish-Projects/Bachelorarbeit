@@ -15,3 +15,5 @@ Multiclass classsifier:
 SVM_Multiclass.ipynb - Multiclass Classification Modal with ONE-vs-ONE and ONE-vs-REST Method.[Supervised] <br>
 Nearest_Neighbours.ipynb - KNN Technique.[Supervised]<br>
 RF_Multiclass.ipynb - Random Forest Multiclass classification and RF feature selection. [supervised]<br> 
+
+Ensemble:
