@@ -1,0 +1,46 @@
+services:
+  replay-traffic:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: tcpreplay:latest
+    container_name: traffic-gen1
+    #network_mode: "container:traffic-gen1"
+    networks: 
+      - edge-IIOTSET-net
+    volumes:
+      - iiotset:/data:ro
+    environment:
+      - pcap_file=/data/Backdoor_attack.pcap 
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+
+  tshark-pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile.tshark
+    image: tshark:latest
+    container_name: tshark-pipeline
+    #networks: 
+    # - edge-IIOTSET-net
+    network_mode: "container:traffic-gen1"
+    volumes:
+      - feature_csv:/app:ro
+    environment:
+      - script= feature_pipeline.py
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+    
+networks:
+  edge-IIOTSET-net:
+    driver: bridge
+    #driver_opts:
+    #  mac-address: 02:42:ac:12:00:02
+
+volumes:
+  iiotset:
+    external: true
+  feature_csv:
+    external: true
