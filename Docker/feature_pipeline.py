@@ -144,7 +144,7 @@ if __name__ == '__main__':
     # From Live Capture
     live_cap = pyshark.LiveCapture(interface= interface_arg) #, capture_filter = '')# output_file= 'live_capture.csv' ) 
     print("Live Capture Started!")
-    for packet in live_cap.sniff_continuously(packet_count=5): # Param: packet_count=None, timeout=None # Reading from a Live Capture
+    for packet in live_cap.sniff_continuously(packet_count=10): # Param: packet_count=None, timeout=None # Reading from a Live Capture
         process_packet(packet)
     # (OR)
     #live_cap.apply_on_packets(process_packet); # Param: callback, timeout=None. packet_count=None
@@ -163,7 +163,7 @@ if __name__ == '__main__':
                     'http_content_len', 'http_request_method', 'http_referer', 'http_request_version', 'http_response',
                     'dns_qry_name', 'dns_qry_len', 'dns_qry_type', 'dns_qry_qu', 'dns_retransmission', 'dns_retransmission_request', 'dns_retransmission_request_in',
                     'mqtt_conflag_cleansess','mqtt_conflags', 'mqtt_hdrflags', 'mqtt_len', 'mqtt_msgtype',
-                    'mqtt_proto_len', 'mqtt_topic_len', 'mqtt_ver', 'mbtcp_len','arp_opcode2']
+                    'mqtt_proto_len', 'mqtt_topic_len', 'mqtt_ver', 'mbtcp_len']#,'arp_opcode2']
     df = pd.DataFrame(val, columns=columns_list)
 
     print(df.head(5))

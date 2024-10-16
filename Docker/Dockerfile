@@ -25,4 +25,4 @@ RUN ./configure
 RUN make
 RUN make install
 
-CMD ["sh", "-c", "tcpreplay -i eth0 -K --mbps 1 --loop 1 --unique-ip /data/Backdoor_attack.pcap"]  
+CMD ["sh", "-c", "tcpreplay -i eth0 -K --mbps 1 --loop 1 --unique-ip $pcap_file"]
