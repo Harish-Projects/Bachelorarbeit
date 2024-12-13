@@ -1,19 +1,20 @@
-Preprocessing:
-Feature_Extraction.ipynb - Feature selection, Encoding<br>
-Feature_Visualisation.ipynb - Feature Distribution, Quality of Data, TSNE.<br>
-Normalisation.ipynb - Scaling the Features and Setting it Ready for Training. <br>
+**"Live Intrusion Detection System mit Shallow Machine Learning: Vergleich und Evaluation von Modellen in IoT- und IIoT-Umgebungen"**
 
-Binary classsifier:
-SVM.ipynb - Binary classification Modal with SVM Techniques.[Supervised]<br>
+Dataset: Edge-IIoT-Set (2022)
 
-Anomalie Detection:
-One_class_SVM.ipynb - Outlier Detection Technique. [Unsupervised]<br>
-LOF.ipynb - Novelty and Outlier Detection Technique. [Semisupervised and Unsupervised respectively]<br>
-IForest_AD.ipynb - Outlier Detection Technique. [unsupervised]<br>
+Models:
+* Binary classsifier;
+  * SVC - Model with SVM techniques.[Supervised]<br>
+  * KNN - Model with cluster techniques.[Supervised]<br>
+  * Local Outlier Factor - Model with density based techniques.[semi-supervised]<br>
+  * Random Forest - Model with decison tree based techniques.[supervised]<br>
+* Multiclass classifier;
+  * SVC - SVM technique with non linear kernel trick and ONE-vs-ONE method.[Supervised]<br>
+  * Linear SVC - Model with linear kernel and ONE-vs-REST method.[Supervised]<br>
+  * KNN - Cluster technique.[Supervised]<br>
+  * RF - Decision tree multiclass classifier.[supervised]<br> 
 
-Multiclass classsifier:
-SVM_Multiclass.ipynb - Multiclass Classification Modal with ONE-vs-ONE and ONE-vs-REST Method.[Supervised] <br>
-Nearest_Neighbours.ipynb - KNN Technique.[Supervised]<br>
-RF_Multiclass.ipynb - Random Forest Multiclass classification and RF feature selection. [supervised]<br> 
+Evaluation: 
+Accuracy, Precision, Recall, F1, Confusion Matrix and Novel Percentage. Novel percentage evaluates a Total True Positive when a model is trained with *leaving one target class out* approach. 
 
-Ensemble:
+Directory Structure:
