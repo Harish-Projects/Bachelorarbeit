@@ -9,16 +9,24 @@ RUN apt-get update && apt-get install -y \
         python3-pip\
         net-tools
 
-RUN mkdir /app
+RUN mkdir -p /app /data
+
+WORKDIR /data
+COPY /data/RF_model.pkl .
+COPY /data/RF_Multi_model.pkl . 
+
 WORKDIR /app
 RUN python3 -m venv venv
 RUN . venv/bin/activate
 RUN venv/bin/pip install pandas 
 RUN venv/bin/pip install pyshark 
 RUN venv/bin/pip install argparse
+RUN venv/bin/pip install scikit-learn==1.4.2
+RUN venv/bin/pip install imbalanced-learn
+COPY custom_classes.py .
 COPY feature_pipeline.py .
 
 ENV VIRTUAL_ENV=/app/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-CMD ["sh", "-c", "python3 feature_pipeline.py eth0"]
+CMD ["sh", "-c", "python3 $script $model eth0"]

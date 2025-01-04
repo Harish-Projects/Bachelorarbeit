@@ -10,7 +10,7 @@ services:
     volumes:
       - iiotset:/data:ro
     environment:
-      - pcap_file=/data/Backdoor_attack.pcap 
+      - pcap_file=/data/Password_attacks.pcap 
     privileged: true
     depends_on:
       - tshark-pipeline
@@ -24,8 +24,9 @@ services:
     networks: 
      - edge-IIOTSET-net
     volumes:
-      - feature_csv:/app:ro
+      - feature_csv:/data:rw
     environment:
+      - model= RF
       - script= feature_pipeline.py
     privileged: true
     
