@@ -102,7 +102,7 @@ columns = ['arp.opcode', 'arp.hw.size', 'icmp.checksum', 'icmp.seq_le', 'http.co
                 'dns.retransmit_request_in', 'mqtt.conack.flags', 'mqtt.conflag.cleansess', 'mqtt.conflags', 'mqtt.hdrflags', 'mqtt.len', 'mqtt.msgtype', 'mqtt.proto_len', 'mqtt.topic_len',
                 'mqtt.ver', 'mbtcp.len']
 
-categorical_columns = ['http.request.method', 'http.referer', 'http.request.version', 'dns.qry.name.len', 'mqtt.conack.flags']
+categorical_columns = ['http.request.method', 'http.referer', 'http.request.version', 'dns.qry.name', 'mqtt.conack.flags']
 numerical_columns = [col for col in columns if col not in categorical_columns]
 
 ##-----------------------------------------------------------------------------##
